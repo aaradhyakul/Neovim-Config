@@ -30,18 +30,21 @@ local plugins = {
   },
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
 }
+
+
+-- lazy
 local opts = {}
+require("lazy").setup(plugins, opts)
 
 -- treesitter
 local config = require("nvim-treesitter.configs")
 config.setup({
+  auto_install = true,
   ensure_installed = {"lua", "javascript", "html", "c", "cpp", "css", "java", "make", "python", "rust", "sql", "svelte", "typescript"},
   highlight = {enable = true},
   indent = {enable = true},
 })
 
--- lazy
-require("lazy").setup(plugins, opts)
 
 -- telescope
 local builtin = require("telescope.builtin")
