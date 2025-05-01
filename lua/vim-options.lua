@@ -59,6 +59,9 @@ Map("n", "<C-u>", "<C-u>zz")
 Map("n", "n", "nzzzv")
 Map("n", "N", "Nzzzv")
 
+-- diagnostics
+Map('n', 'gl', vim.diagnostic.open_float, { desc = 'Show line diagnostics' })
+
 if vim.fn.has("wsl") == 1 then
 	vim.g.clipboard = {
 		name = "win32yank-wsl",
